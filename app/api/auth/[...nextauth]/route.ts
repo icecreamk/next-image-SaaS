@@ -1,23 +1,26 @@
-import NextAuth from "next-auth";
+import NextAuth, { AuthOptions } from "next-auth";
+import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import GitHubProvider from "next-auth/providers/github";
 import GitLabProvider from "next-auth/providers/gitlab";
+import { db } from "@/server/db/db";
 
 const handler = NextAuth({
+  adapter: DrizzleAdapter(db),
   providers: [
     GitHubProvider({
       clientId:
         "Ov23liVf9qSgSQbMYF6K",
       clientSecret:
-        "f2f1e5647b506454d27eedeb70667572a26bce10",
+        "b1cecbe2805d09a0f510adf826f2426d55100e1b",
     }),
     GitLabProvider({
       clientId:
         "73a64f4d486caa3f2c6b10e1c119c595a1991fce586e3ac4cb1ff4d20461cdd1",
       clientSecret:
-        "gloas-eb78e6fd26fc250da3145b7f3084343484fcfea2b392fc839ec3c85db81674a0",
+        "gloas-abd53d34b824b697ce8d1eca71d86be59a0899d3f718d1019d7e7a624ff16820",
     }),
 
   ],
-});
+} as AuthOptions);
 
 export { handler as GET, handler as POST };

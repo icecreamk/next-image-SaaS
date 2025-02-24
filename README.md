@@ -24,5 +24,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - postgres
 
 
-### Auth
+### Auth(OAuth)
 - next-auth
+- @auth/drizzle-adapter
