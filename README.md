@@ -16,14 +16,17 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-
 ### DB
+
 - drizzle-orm
 - drizzle-kit
 - pg
 - postgres
 
-
 ### Auth(OAuth)
+
 - next-auth
 - @auth/drizzle-adapter
+
+##### do list
+- routes guard (redirect to login if not logged in)
