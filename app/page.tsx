@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { db } from "@/server/db/db";
 export default async function Home() {
-  const users = await db.query.Users.findMany();
+  // const users = await db.query.Users.findMany();
   return (
     <div className="h-screen flex items-center justify-center">
       <form className="w-full max-w-md flex flex-col gap-4">
@@ -12,13 +12,13 @@ export default async function Home() {
         <Textarea name="description" placeholder="Description"></Textarea>
         <Button type="submit">Submit</Button>
       </form>
-      {users.map((user) => {
+      {/* {users.map((user) => {
         return (
           <div key={user.id}>
             {user.id}/{user.name}
           </div>
         );
-      })}
+      })} */}
     </div>
   );
 }
