@@ -1,4 +1,4 @@
-import { createUserSchema } from "@/server/db/validate-schema";
+import { insertUserSchema, updateUserSchema } from "@/server/db/validate-schema";
 import { NextRequest, NextResponse } from "next/server";
 
 export function GET(request: NextRequest) {
@@ -8,7 +8,7 @@ export function GET(request: NextRequest) {
   const id = query.get("id");
 
   try {
-    const result = createUserSchema.parse({
+    const result = insertUserSchema.parse({
       name,
       email,
       id

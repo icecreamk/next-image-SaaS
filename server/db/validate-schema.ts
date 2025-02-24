@@ -1,8 +1,10 @@
-import { createInsertSchema } from "drizzle-zod";
+import { createInsertSchema, createSelectSchema } from "drizzle-zod";
 import { users } from "./schema";
 
-export const createUserSchema = createInsertSchema(users, {
+export const insertUserSchema = createInsertSchema(users, {
   email: (schema) => schema.email(),
 });
 
-// export const updateUserSchema = createUserSchema.pick({ email: true });
+export const updateUserSchema = insertUserSchema.pick({ email: true });
+
+export const queryUserSchema = createSelectSchema(users);
