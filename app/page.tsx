@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { db } from "@/server/db/db";
+import { UserInfo, SessionProvider } from "./UserInfo";
 export default async function Home() {
   // const users = await db.query.Users.findMany();
   return (
@@ -12,13 +12,9 @@ export default async function Home() {
         <Textarea name="description" placeholder="Description"></Textarea>
         <Button type="submit">Submit</Button>
       </form>
-      {/* {users.map((user) => {
-        return (
-          <div key={user.id}>
-            {user.id}/{user.name}
-          </div>
-        );
-      })} */}
+      <SessionProvider>
+        <UserInfo></UserInfo>
+      </SessionProvider>
     </div>
   );
 }
