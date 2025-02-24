@@ -30,3 +30,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ##### do list
 - routes guard (redirect to login if not logged in)
+
+### api
+- zod
