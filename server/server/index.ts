@@ -1,4 +1,4 @@
-import { AuthOptions } from "next-auth";
+import { AuthOptions, getServerSession as nextAuthGEtServerSession } from "next-auth";
 import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import GitHubProvider from "next-auth/providers/github";
 import GitLabProvider from "next-auth/providers/gitlab";
@@ -23,4 +23,6 @@ export const authOptions: AuthOptions = {
     ],
 }
 
-
+export function getServerSession() {
+    return nextAuthGEtServerSession(authOptions)
+}
