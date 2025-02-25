@@ -39,3 +39,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - @trpc/server
 - @trpc/react-query
 - @tanstack/react-query
+
+### upload
+- uppy

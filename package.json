@@ -15,6 +15,9 @@
     "@trpc/client": "11.0.0-rc.808",
     "@trpc/react-query": "11.0.0-rc.808",
     "@trpc/server": "11.0.0-rc.808",
+    "@types/use-sync-external-store": "^0.0.6",
+    "@uppy/aws-s3": "^4.2.3",
+    "@uppy/core": "^4.4.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "drizzle-orm": "^0.39.3",
@@ -28,6 +31,7 @@
     "react-dom": "^19.0.0",
     "tailwind-merge": "^3.0.1",
     "tailwindcss-animate": "^1.0.7",
+    "use-sync-external-store": "^1.4.0",
     "zod": "^3.24.2"
   },
   "devDependencies": {
