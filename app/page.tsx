@@ -1,14 +1,13 @@
-'use client'
+"use client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { UserInfo, SessionProvider } from "./UserInfo";
-import { useEffect } from "react";
-import { trpcClient } from "@/utils/api";
+import { trpcClientReact } from "@/utils/api";
 export default function Home() {
-  useEffect(() => {
-    trpcClient.hello.query();
-  }, [])
+  const { data, isLoading, isError } = trpcClientReact.hello.useQuery(void 0, {
+    refetchOnWindowFocus: false,
+  });
   return (
     <div className="h-screen flex items-center justify-center">
       <form className="w-full max-w-md flex flex-col gap-4">
@@ -16,6 +15,9 @@ export default function Home() {
         <Input name="name" placeholder="App name"></Input>
         <Textarea name="description" placeholder="Description"></Textarea>
         <Button type="submit">Submit</Button>
+        {data?.hello}
+        {isLoading && "Loading..."}
+        {isError && "Error"}
       </form>
       <SessionProvider>
         <UserInfo></UserInfo>

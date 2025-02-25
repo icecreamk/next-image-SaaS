@@ -11,8 +11,10 @@
   "dependencies": {
     "@auth/drizzle-adapter": "^1.7.4",
     "@radix-ui/react-slot": "^1.1.2",
-    "@trpc/client": "^10.45.2",
-    "@trpc/server": "^10.45.2",
+    "@tanstack/react-query": "^5.66.9",
+    "@trpc/client": "11.0.0-rc.808",
+    "@trpc/react-query": "11.0.0-rc.808",
+    "@trpc/server": "11.0.0-rc.808",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "drizzle-orm": "^0.39.3",
