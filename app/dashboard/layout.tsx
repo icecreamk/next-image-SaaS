@@ -1,4 +1,4 @@
-import { getServerSession } from "@/server/server/auth";
+import { getServerSession } from "@/server/auth";
 import { redirect } from "next/navigation";
 
 export default async function DashboardLayout({

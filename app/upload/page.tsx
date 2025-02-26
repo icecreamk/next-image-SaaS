@@ -2,14 +2,8 @@
 import { Uppy } from "@uppy/core";
 import AWSS3 from "@uppy/aws-s3";
 import { useState } from "react";
-
-const useUppyState = (uppy: Uppy, selector: (state: any) => any) => {
-  const [state, setState] = useState(selector(uppy.getState()));
-  uppy.on("state-update", (oldState, newState) => {
-    setState(selector(newState));
-  });
-  return state;
-};
+import { trcpPureClient } from "@/utils/api";
+import { useUppyState } from "./useUppyState";
 
 export default function Home() {
   const [uppy] = useState(() => {
@@ -17,16 +11,22 @@ export default function Home() {
     uppy.use(AWSS3, {
       shouldUseMultipart: false,
       getUploadParameters(file) {
-        return {
-          url: "",
-        };
+        console.log(file);
+
+        debugger;
+
+        return trcpPureClient.file.createPresigneUrl.mutate({
+          filename: file.data instanceof File ? file.data.name : "test",
+          contentType: file.data.type || "",
+          size: file.size as number,
+        });
       },
     });
 
     return uppy;
   });
 
-  const files = useUppyState(uppy, (s) => Object.values(s.files));
+  const files: any = useUppyState(uppy, (s: any) => Object.values(s.files));
 
   return (
     <div>
