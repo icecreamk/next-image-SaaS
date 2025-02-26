@@ -1,5 +1,3 @@
-import { Uppy, State } from '@uppy/core'
-import { get } from 'http'
 import { useMemo } from 'react'
 import { useSyncExternalStoreWithSelector } from 'use-sync-external-store/shim/with-selector'
 

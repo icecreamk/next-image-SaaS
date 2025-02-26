@@ -8,12 +8,11 @@ import { useUppyState } from "./useUppyState";
 export default function Home() {
   const [uppy] = useState(() => {
     const uppy = new Uppy();
+    console.log(uppy)
     uppy.use(AWSS3, {
       shouldUseMultipart: false,
       getUploadParameters(file) {
         console.log(file);
-
-        debugger;
 
         return trcpPureClient.file.createPresigneUrl.mutate({
           filename: file.data instanceof File ? file.data.name : "test",
@@ -26,7 +25,9 @@ export default function Home() {
     return uppy;
   });
 
-  const files: any = useUppyState(uppy, (s: any) => Object.values(s.files));
+  const files: any = useUppyState(uppy, (s: any) => {
+    return Object.values(s.files)
+  });
 
   return (
     <div>
@@ -35,18 +36,21 @@ export default function Home() {
         onChange={(e) => {
           if (e.target.files) {
             Array.from(e.target.files).forEach((file) => {
+              console.log(file)
               uppy.addFile({
                 name: file.name,
                 type: file.type,
                 data: file,
               });
+
+              uppy.upload()
             });
           }
         }}
       />
       {files.map((f: any) => {
         const url = URL.createObjectURL(f.data);
-        return <img src={url} key={f.id} />;
+        return <img src={url} key={f.id} />
       })}
     </div>
   );
