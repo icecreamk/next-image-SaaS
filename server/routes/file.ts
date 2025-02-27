@@ -1,14 +1,13 @@
 import z from 'zod'
 import { router, protectedProcedure } from '../trpc'
 
-import { TRPCError } from '@trpc/server'
-import { PutObjectAclCommand, PutObjectAclCommandInput, PutObjectCommand, S3Client } from '@aws-sdk/client-s3'
+import { PutObjectAclCommandInput, PutObjectCommand, S3Client } from '@aws-sdk/client-s3'
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner'
 
 
-const bucket = 'image-1344714885'
-const apiEnxpoint = 'https://image-1344714885.cos.ap-guangzhou.myqcloud.com'
-const region = 'ap-guangdong'
+const bucket = 'image-sass-new-1344714885'
+const apiEnxpoint = 'https://image-sass-new-1344714885.cos.ap-guangzhou.myqcloud.com'
+const region = 'ap-guangzhou'
 
 
 
@@ -35,8 +34,6 @@ export const filetRoutes = router({
                 endpoint: apiEnxpoint,
                 region,
                 credentials: {
-                    accessKeyId: SecretId,
-                    secretAccessKey: SecretKey,
                 }
             })
             const command = new PutObjectCommand(params)

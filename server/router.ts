@@ -1,5 +1,5 @@
+import { router } from './trpc';
 import { filetRoutes } from "./routes/file";
-import { router } from './trpc'
 
 export const appRouter = router({
     file: filetRoutes
